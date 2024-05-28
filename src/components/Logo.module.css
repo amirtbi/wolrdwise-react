@@ -1,0 +1,6 @@
+.logo:global(a) {
+  align-self: baseline;
+}
+.logo img {
+  height: 5.2rem;
+}
