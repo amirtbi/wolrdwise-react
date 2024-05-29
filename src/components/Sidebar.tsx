@@ -6,7 +6,7 @@ export default function SideBar() {
       <div className={Styles.sidebar}>
         <Logo />
         <AppNav />
-        <p>Country list</p>
+        <Outlet/>
 
         <footer className={Styles.footer}>
           <p className={Styles.copyright}>
