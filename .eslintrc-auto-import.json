@@ -59,6 +59,8 @@
     "Sidebar": true,
     "Map": true,
     "CityList": true,
-    "CityItem": true
+    "CityItem": true,
+    "CountriesList": true,
+    "CountryList": true
   }
 }

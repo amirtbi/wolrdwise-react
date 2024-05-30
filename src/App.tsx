@@ -7,6 +7,7 @@ import AppLayout from "./pages/AppLayout/AppLayout";
 import Login from "./pages/Login/Login";
 import PageNavs from "./components/PageNavs";
 import { BrowserRouter } from "react-router-dom";
+import CountryList from "./components/CountryList";
 
 const routes = [
   { path: "/", component: <HomePage /> },
@@ -56,7 +57,12 @@ function App() {
                   path="cities"
                   element={<CityList isLoading={isLoading} cities={cities} />}
                 ></Route>
-                <Route path="countries" element={<p>Countries</p>}></Route>
+                <Route
+                  path="countries"
+                  element={
+                    <CountryList isLoading={isLoading} cities={cities} />
+                  }
+                ></Route>
                 <Route path="forms" element={<p>Forms</p>}></Route>
               </Route>
               <Route path="/login" element={<Login />}></Route>

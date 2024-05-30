@@ -1,12 +1,11 @@
 import styles from "./CountryItem.module.css";
 import React from "react";
-type counter = {
-  countryItem: string;
+type country = {
   emoji: string;
   country: string;
 };
-function CountryItem(props: counter) {
-  const { country, countryItem, emoji } = props;
+function CountryItem(props: { country: country }) {
+  const { country } = props;
   return (
     <li className={styles.countryItem}>
       <span>{country.emoji}</span>
