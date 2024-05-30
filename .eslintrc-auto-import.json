@@ -57,6 +57,8 @@
     "SpinnerFullpage": true,
     "User": true,
     "Sidebar": true,
-    "Map": true
+    "Map": true,
+    "CityList": true,
+    "CityItem": true
   }
 }

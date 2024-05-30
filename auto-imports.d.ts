@@ -9,6 +9,8 @@ declare global {
   const AppLayout: typeof import("./src/pages/AppLayout/AppLayout")["default"]
   const AppNav: typeof import('./src/components/AppNav')['default']
   const City: typeof import('./src/components/City.jsx')['default']
+  const CityItem: typeof import('./src/components/CityItem')['default']
+  const CityList: typeof import('./src/components/CityList')['default']
   const CountryItem: typeof import('./src/components/CountryItem')['default']
   const Form: typeof import('./src/components/Form')['default']
   const Home: typeof import("./src/pages/Home/Home")["default"]

@@ -16,7 +16,27 @@ const routes = [
   { path: "/app", component: <AppLayout /> },
   { path: "/login", component: <Login /> },
 ];
+const BASE_URL = "http://localhost:3000";
 function App() {
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    const fetchCities = async () => {
+      setIsLoading(true);
+      try {
+        const res = await fetch(`${BASE_URL}/cities`);
+        const data = await res.json();
+        setCities(data);
+      } catch (e) {
+        throw new Error("Something went wrong during fetching data");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCities();
+  }, []);
   return (
     <>
       <div>
@@ -27,13 +47,19 @@ function App() {
               <Route path="/home" element={<HomePage />}></Route>
               <Route path="/product" element={<Product />}></Route>
               <Route path="/pricing" element={<Pricing />}></Route>
-              <Route path="/app" element={<AppLayout/>}>
-                <Route index element={<p>List of countries</p>}></Route>
-                <Route path="cities" element={<p>Cities</p>}></Route>
+              <Route path="/app" element={<AppLayout />}>
+                <Route
+                  index
+                  element={<CityList isLoading={isLoading} cities={cities} />}
+                ></Route>
+                <Route
+                  path="cities"
+                  element={<CityList isLoading={isLoading} cities={cities} />}
+                ></Route>
                 <Route path="countries" element={<p>Countries</p>}></Route>
                 <Route path="forms" element={<p>Forms</p>}></Route>
               </Route>
-              <Route path="/login" element={<Login/>}></Route>
+              <Route path="/login" element={<Login />}></Route>
               <Route path="*" element={<PageNotFound />}></Route>
             </Routes>
           </BrowserRouter>
