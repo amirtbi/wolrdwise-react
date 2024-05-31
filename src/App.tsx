@@ -49,10 +49,7 @@ function App() {
               <Route path="/product" element={<Product />}></Route>
               <Route path="/pricing" element={<Pricing />}></Route>
               <Route path="/app" element={<AppLayout />}>
-                <Route
-                  index
-                  element={<CityList isLoading={isLoading} cities={cities} />}
-                ></Route>
+                <Route index element={<Navigate replace to="cities" />}></Route>
                 <Route
                   path="cities"
                   element={<CityList isLoading={isLoading} cities={cities} />}
@@ -63,7 +60,8 @@ function App() {
                     <CountryList isLoading={isLoading} cities={cities} />
                   }
                 ></Route>
-                <Route path="forms" element={<p>Forms</p>}></Route>
+                <Route path="cities/:id" element={<City />}></Route>
+                <Route path="form" element={<Form />}></Route>
               </Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="*" element={<PageNotFound />}></Route>

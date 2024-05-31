@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import styles from "./Form.module.css";
 
-export function convertToEmoji(countryCode) {
+export function convertToEmoji(countryCode: any) {
   const codePoints = countryCode
     .toUpperCase()
     .split("")
@@ -13,6 +13,7 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
+  const navigate = useNavigate();
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
@@ -34,8 +35,8 @@ function Form() {
         <label htmlFor="date">When did you go to {cityName}?</label>
         <input
           id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
+          onChange={(e) => setDate(new Date(e.target.value))}
+          value={date.toDateString()}
         />
       </div>
 
@@ -49,8 +50,18 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        <button>Add</button>
-        <button>&larr; Back</button>
+        <Button type="primary" onClick={() => console.log("s")}>
+          Add
+        </Button>
+        <Button
+          type="back"
+          onClick={(e: any) => {
+            e.preventDefault();
+            navigate(-1);
+          }}
+        >
+          &larr; Back
+        </Button>
       </div>
     </form>
   );
