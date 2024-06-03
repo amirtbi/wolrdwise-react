@@ -7,13 +7,10 @@ interface ICity {
   date: string;
   notes: string;
 }
-export default function CountryList(props: {
-  cities: ICity[];
-  isLoading: boolean;
-}) {
-  const { cities, isLoading } = props;
+export default function CountryList() {
+  const cityContextVal = useCities();
 
-  const countries = cities.reduce(
+  const countries = cityContextVal!.cities.reduce(
     (arr: Pick<ICity, "country" | "emoji">[], city: ICity) => {
       if (!arr.map((el: any) => el.country).includes(city.country)) {
         return [...arr, { country: city.country, emoji: city.emoji }];
@@ -23,16 +20,15 @@ export default function CountryList(props: {
     },
     []
   );
-  console.log("countries", countries);
 
-  if (isLoading) {
+  if (cityContextVal!.isLoading) {
     return (
       <>
         <Spinner />
       </>
     );
   }
-  if (!cities.length)
+  if (!cityContextVal!.cities.length)
     return (
       <Message message="Add your first city by clicking on a city on the map" />
     );

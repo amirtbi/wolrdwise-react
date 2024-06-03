@@ -7,27 +7,24 @@ interface Cities {
   date: string;
   notes: string;
 }
-export default function CityList(props: {
-  cities: Cities[];
-  isLoading: boolean;
-}) {
-  const { cities, isLoading } = props;
+export default function CityList() {
+  const cityContextVal = useCities();
 
-  if (isLoading) {
+  if (cityContextVal?.isLoading) {
     return (
       <>
         <Spinner />
       </>
     );
   }
-  if (!cities.length)
+  if (!cityContextVal?.cities.length)
     return (
       <Message message="Add your first city by clicking on a city on the map" />
     );
   return (
     <>
       <ul className={Styles.cityList}>
-        {cities.map((city, index) => (
+        {cityContextVal.cities.map((city, index) => (
           <CityItem city={city} key={index} />
         ))}
       </ul>

@@ -62,6 +62,8 @@
     "CityItem": true,
     "CountriesList": true,
     "CountryList": true,
-    "Button": true
+    "Button": true,
+    "CityProvider": true,
+    "useCities": true
   }
 }

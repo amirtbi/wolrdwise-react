@@ -19,6 +19,7 @@ const formatDate = (date: string) =>
   }).format(new Date(date));
 
 export default function CityItem(props: { city: City }) {
+  const cityContext = useCities();
   const { city } = props;
   const { lat, lng } = city.position as { lat: number; lng: number };
   console.log("city", city);
@@ -27,7 +28,11 @@ export default function CityItem(props: { city: City }) {
       <li>
         <Link
           to={`${city.id}?lat=${lat}&long=${lng}`}
-          className={Styles.cityItem}
+          className={`${Styles.cityItem} ${
+            city.id === cityContext?.currentCity?.id
+              ? Styles["cityItem--active"]
+              : ""
+          }`}
         >
           <span className={Styles.emoji}>{city.emoji}</span>
           <h3 className={Styles.name}>{city.cityName}</h3>
