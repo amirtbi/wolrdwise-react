@@ -1,5 +1,6 @@
 import React from "react";
 import Styles from "./CityList.module.css";
+import { useCities } from "../context/CityContext";
 interface Cities {
   cityName: string;
   country: string;

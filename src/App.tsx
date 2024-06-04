@@ -8,7 +8,7 @@ import Login from "./pages/Login/Login";
 import PageNavs from "./components/PageNavs";
 import { BrowserRouter } from "react-router-dom";
 import CountryList from "./components/CountryList";
-import { CityProvider } from "./CityContext";
+import { CityProvider } from "./context/CityContext";
 
 const routes = [
   { path: "/", component: <HomePage /> },
