@@ -10,7 +10,7 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +34,160 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
+    },
+    {
+      "id": "d548",
+      "cityName": "Solosancho",
+      "position": {
+        "lng": -4.921277481505178,
+        "lat": 40.54720023441049
+      },
+      "notes": "asasa",
+      "date": "2024-06-05T19:49:18.395Z",
+      "emoji": "🇪🇸"
+    },
+    {
+      "id": "4caa",
+      "cityName": "Dehesa de Montejo",
+      "position": {
+        "lng": -4.503779983120416,
+        "lat": 42.827638636242284
+      },
+      "notes": "asasa",
+      "date": "2024-06-05T19:49:18.395Z",
+      "emoji": "🇪🇸"
+    },
+    {
+      "id": "d61e",
+      "cityName": "Saint-Denis-de-Jouhet",
+      "position": {
+        "lng": 1.8681402160800746,
+        "lat": 46.51351558059737
+      },
+      "notes": "",
+      "date": "2024-06-05T19:50:25.003Z",
+      "emoji": "🇫🇷"
+    },
+    {
+      "id": "6c96",
+      "cityName": "Vrginmost",
+      "country": "Croatia",
+      "position": {
+        "lng": 15.862908576736489,
+        "lat": 45.367584368849805
+      },
+      "notes": "",
+      "date": "2024-06-05T19:53:33.169Z",
+      "emoji": "🇭🇷"
+    },
+    {
+      "id": "15e5",
+      "cityName": "Fasham",
+      "country": "Iran (Islamic Republic of)",
+      "position": {
+        "lng": 51.45886503426061,
+        "lat": 35.871246850027966
+      },
+      "notes": "",
+      "date": "2024-06-05T19:53:33.169Z",
+      "emoji": "🇮🇷"
+    },
+    {
+      "id": "f024",
+      "cityName": "Saint-Sauveur-Lalande",
+      "country": "France",
+      "position": {
+        "lng": 0.2642354435803629,
+        "lat": 44.96479793033104
+      },
+      "notes": "",
+      "date": "2024-06-05T19:55:37.038Z",
+      "emoji": "🇫🇷"
+    },
+    {
+      "id": "f264",
+      "cityName": "Elmers",
+      "country": "Morocco",
+      "position": {
+        "lng": -4.569736709450441,
+        "lat": 33.44977658311846
+      },
+      "notes": "",
+      "date": "2024-06-05T20:00:54.816Z",
+      "emoji": "🇲🇦"
+    },
+    {
+      "id": "e957",
+      "cityName": "Elmers",
+      "country": "Morocco",
+      "position": {
+        "lng": -4.569736709450441,
+        "lat": 33.44977658311846
+      },
+      "notes": "",
+      "date": "2024-06-05T20:01:11.361Z",
+      "emoji": "🇲🇦"
+    },
+    {
+      "id": "ea37",
+      "cityName": "Elmers",
+      "country": "Morocco",
+      "position": {
+        "lng": -4.569736709450441,
+        "lat": 33.44977658311846
+      },
+      "notes": "",
+      "date": "2024-06-05T20:01:11.361Z",
+      "emoji": "🇲🇦"
+    },
+    {
+      "id": "dd5f",
+      "cityName": "Brojce",
+      "country": "Poland",
+      "position": {
+        "lng": 19.68796850881982,
+        "lat": 51.65892664880053
+      },
+      "notes": "",
+      "date": "2024-06-05T20:01:11.361Z",
+      "emoji": "🇵🇱"
+    },
+    {
+      "id": "563c",
+      "cityName": "Trzebnica",
+      "country": "Poland",
+      "position": {
+        "lng": 17.029831165174098,
+        "lat": 51.303145259199084
+      },
+      "notes": "",
+      "date": "2024-06-05T20:01:31.801Z",
+      "emoji": "🇵🇱"
+    },
+    {
+      "id": "a286",
+      "cityName": "Kalush",
+      "country": "Ukraine",
+      "position": {
+        "lng": 23.818798007895047,
+        "lat": 48.73445537176822
+      },
+      "notes": "",
+      "date": "2024-06-05T20:01:31.801Z",
+      "emoji": "🇺🇦"
+    },
+    {
+      "id": "89d0",
+      "cityName": "Cherkasy",
+      "country": "Ukraine",
+      "position": {
+        "lng": 31.24551643849427,
+        "lat": 49.41097319969587
+      },
+      "notes": "",
+      "date": "2024-06-05T20:02:27.624Z",
+      "emoji": "🇺🇦"
     }
   ]
 }

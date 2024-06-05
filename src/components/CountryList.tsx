@@ -1,16 +1,12 @@
 import React from "react";
 import Styles from "./CountryList.module.css";
-interface ICity {
-  cityName: string;
-  country: string;
-  emoji: string;
-  date: string;
-  notes: string;
-}
+import { useCities } from "../context/CityContext";
+import { ICity } from "../model/city.model";
+
 export default function CountryList() {
   const cityContextVal = useCities();
 
-  const countries = cityContextVal!.cities.reduce(
+  const countries = cityContextVal?.cities.reduce(
     (arr: Pick<ICity, "country" | "emoji">[], city: ICity) => {
       if (!arr.map((el: any) => el.country).includes(city.country)) {
         return [...arr, { country: city.country, emoji: city.emoji }];
