@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./button.module.css";
 type BtnProps = {
   children: JSX.Element[] | JSX.Element | string;
-  onClick: (e: any) => any;
+  onClick?: (e: any) => any;
   type: string;
 };
 export default function Button(props: BtnProps) {
@@ -10,7 +10,7 @@ export default function Button(props: BtnProps) {
   return (
     <>
       <button
-        onClick={(e) => onClick(e)}
+        onClick={(e) => onClick?.(e)}
         className={`${Styles.btn} ${Styles[type]}
         }`}
       >

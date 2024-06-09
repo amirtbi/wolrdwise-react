@@ -1,6 +1,15 @@
 import React from "react";
 import Styles from "./PageNavs.module.css";
+import { useAuth } from "../context/AuthContext";
 export default function PageNavs() {
+  const authContext = useAuth();
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    if (authContext?.isAuthenticated) {
+      authContext?.logout();
+    }
+    navigate("/login");
+  };
   return (
     <>
       <nav className={Styles["nav"]}>
@@ -14,9 +23,9 @@ export default function PageNavs() {
           <Link style={{ padding: "5px" }} to="/pricing">
             Pricing
           </Link>
-          <Link style={{ padding: "5px" }} to="/login">
-            Login
-          </Link>
+          <Button type="primary" onClick={handleRedirect}>
+            {authContext?.isAuthenticated ? "Logout" : "Login"}
+          </Button>
         </ul>
       </nav>
     </>

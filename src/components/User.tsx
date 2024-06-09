@@ -1,22 +1,23 @@
+import React from "react";
+import { useAuth } from "../context/AuthContext";
 import styles from "./User.module.css";
-
-const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
-  password: "qwerty",
-  avatar: "https://i.pravatar.cc/100?u=zz",
-};
+import Button from "./Button";
 
 function User() {
-  const user = FAKE_USER;
-
-  function handleClick() {}
+  const authContext = useAuth();
+  const navigate = useNavigate();
+  function handleClick() {
+    authContext?.logout();
+    navigate("/login");
+  }
 
   return (
     <div className={styles.user}>
-      <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span>
-      <button onClick={handleClick}>Logout</button>
+      <img src={authContext?.user?.avatar} alt={authContext?.user?.name} />
+      <span>Welcome, {authContext?.user?.name}</span>
+      <Button type="primary" onClick={handleClick}>
+        Logout
+      </Button>
     </div>
   );
 }

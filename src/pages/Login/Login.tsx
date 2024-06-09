@@ -1,15 +1,29 @@
 import React from "react";
 import styles from "./Login.module.css";
+import Button from "../../components/Button";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
+  const authContext = useAuth();
   // PRE-FILL FOR DEV PURPOSES
+  const navigate = useNavigate();
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    authContext?.login(email, password);
+  };
+
+  useEffect(() => {
+    if (authContext?.isAuthenticated) {
+      navigate("/app", { replace: true });
+    }
+  }, [authContext?.isAuthenticated]);
   return (
     <main className={styles.login}>
       <PageNavs />
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -31,7 +45,7 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Button type="primary">Login</Button>
         </div>
       </form>
     </main>

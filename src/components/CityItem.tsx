@@ -1,13 +1,14 @@
 import React from "react";
 import Styles from "./CityItem.module.css";
 import { useCities } from "../context/CityContext";
+import { ICity } from "../model/city.model";
 interface City {
   cityName: string;
   country: string;
   emoji: string;
   date: string;
   notes: string;
-  id?: number;
+  id?: string;
   position?: { lat: number; lng: number };
 }
 
@@ -19,11 +20,15 @@ const formatDate = (date: string) =>
     weekday: "long",
   }).format(new Date(date));
 
-export default function CityItem(props: { city: City }) {
+export default function CityItem(props: { city: ICity }) {
   const cityContext = useCities();
   const { city } = props;
   const { lat, lng } = city.position as { lat: number; lng: number };
-  console.log("city", city);
+
+  const handleDeletion = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (city.id) await cityContext?.deleteCity(city.id);
+  };
   return (
     <>
       <li>
@@ -37,8 +42,12 @@ export default function CityItem(props: { city: City }) {
         >
           <span className={Styles.emoji}>{city.emoji}</span>
           <h3 className={Styles.name}>{city.cityName}</h3>
-          <time className={Styles.date}>{formatDate(city.date)}</time>
-          <button className={Styles.deleteBtn}>&times;</button>
+          <time className={Styles.date}>
+            {formatDate(city.date.toString())}
+          </time>
+          <button onClick={handleDeletion} className={Styles.deleteBtn}>
+            &times;
+          </button>
         </Link>
       </li>
     </>
