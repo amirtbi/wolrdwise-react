@@ -1,13 +1,7 @@
 import React from "react";
 import Styles from "./CityList.module.css";
 import { useCities } from "../context/CityContext";
-interface Cities {
-  cityName: string;
-  country: string;
-  emoji: string;
-  date: string;
-  notes: string;
-}
+
 export default function CityList() {
   const cityContextVal = useCities();
 
@@ -31,4 +25,7 @@ export default function CityList() {
       </ul>
     </>
   );
+}
+function authContext() {
+  throw new Error("Function not implemented.");
 }

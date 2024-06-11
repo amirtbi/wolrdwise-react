@@ -64,6 +64,7 @@
     "CountryList": true,
     "Button": true,
     "CityProvider": true,
-    "useCities": true
+    "useCities": true,
+    "ProtectedRoute": true
   }
 }

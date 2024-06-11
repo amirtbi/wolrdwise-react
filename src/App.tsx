@@ -7,11 +7,11 @@ import AppLayout from "./pages/AppLayout/AppLayout";
 import Login from "./pages/Login/Login";
 import User from "./components/User";
 import PageNavs from "./components/PageNavs";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import CountryList from "./components/CountryList";
 import { CityProvider } from "./context/CityContext";
 import { AuthProvider } from "./context/AuthContext";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 const routes = [
   { path: "/", component: <HomePage /> },
   { path: "/home", component: <HomePage /> },
@@ -27,13 +27,20 @@ function App() {
         <main>
           <AuthProvider>
             <CityProvider>
-              <BrowserRouter>
+              <Router>
                 <Routes>
                   <Route index element={<HomePage />}></Route>
                   <Route path="/home" element={<HomePage />}></Route>
                   <Route path="/product" element={<Product />}></Route>
                   <Route path="/pricing" element={<Pricing />}></Route>
-                  <Route path="/app" element={<AppLayout />}>
+                  <Route
+                    path="/app"
+                    element={
+                      <ProtectedRoute>
+                        <AppLayout />
+                      </ProtectedRoute>
+                    }
+                  >
                     <Route
                       index
                       element={<Navigate replace to="cities" />}
@@ -46,7 +53,7 @@ function App() {
                   <Route path="/login" element={<Login />}></Route>
                   <Route path="*" element={<PageNotFound />}></Route>
                 </Routes>
-              </BrowserRouter>
+              </Router>
             </CityProvider>
           </AuthProvider>
         </main>

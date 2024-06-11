@@ -30,6 +30,7 @@ declare global {
   const PageNotfound: typeof import('./src/pages/PageNotfound')['default']
   const Pricing: typeof import("./src/pages/Pricing/Pricing")["default"]
   const Product: typeof import("./src/pages/Product/Product")["default"]
+  const ProtectedRoute: typeof import('./src/components/ProtectedRoute')['default']
   const Route: typeof import('react-router-dom')['Route']
   const Routes: typeof import('react-router-dom')['Routes']
   const Sidebar: typeof import('./src/components/Sidebar')['default']

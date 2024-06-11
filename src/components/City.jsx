@@ -14,6 +14,7 @@ function City() {
   const params = useParams();
   const navigate = useNavigate();
   const { getCity, currentCity, isLoading } = useCities();
+  const authContext = useAuth();
   console.log("city");
   useEffect(() => {
     getCity(params.id);
