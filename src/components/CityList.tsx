@@ -26,6 +26,3 @@ export default function CityList() {
     </>
   );
 }
-function authContext() {
-  throw new Error("Function not implemented.");
-}

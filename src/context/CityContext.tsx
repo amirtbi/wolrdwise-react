@@ -3,7 +3,7 @@ import { createContext } from "react";
 import { ICity } from "../model/city.model";
 const CityContext = createContext<{
   cities: ICity[];
-  currentCity: ICity | undefined;
+  currentCity: ICity;
   getCity: (id: string) => void;
   createCity: (city: ICity) => void;
   deleteCity: (id: string) => void;
@@ -67,19 +67,25 @@ const CityProvider = (props: { children: JSX.Element | JSX.Element[] }) => {
     fetchCities();
   }, []);
 
-  async function getCity(id: string) {
-    if (id === currentCity.id) return;
-    setIsLoading(true);
-    try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await res.json();
-      dispatch({ type: "setCurrentCity", payload: data });
-    } catch (e) {
-      throw new Error("Something went wrong during fetching current city data");
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  const getCity = useCallback(
+    async function getCity(id: string) {
+      debugger;
+      if (id === currentCity.id || !currentCity.id) return;
+      setIsLoading(true);
+      try {
+        const res = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await res.json();
+        dispatch({ type: "setCurrentCity", payload: data });
+      } catch (e) {
+        throw new Error(
+          "Something went wrong during fetching current city data"
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [currentCity?.id]
+  );
 
   async function createCity(newCity: Omit<ICity, "id">) {
     setIsLoading(true);

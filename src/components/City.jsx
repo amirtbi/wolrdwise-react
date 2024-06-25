@@ -18,7 +18,7 @@ function City() {
   console.log("city");
   useEffect(() => {
     getCity(params.id);
-  }, [params.id]);
+  }, [params.id, getCity]);
 
   if (isLoading) {
     return <Spinner />;
